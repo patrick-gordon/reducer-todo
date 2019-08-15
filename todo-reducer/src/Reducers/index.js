@@ -35,7 +35,12 @@ export function reducer(state, action) {
                         return todo;
                     }
                 })
-            }
+            };
+            case 'CLEAR_COMPLETED':
+                return {
+                    ...state,
+                    todoArray: state.todoArray.filter(todo => !todo.completed)
+                };
     default:
         return state;
     }
